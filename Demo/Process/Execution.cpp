@@ -6,7 +6,7 @@
 
 int main()
 {
-    int status = Process::EecuteCommand("exit 0");
+    int status = Process::ExecuteCommand("exit 0");
     assert(WIFEXITED(status));
     assert(WEXITSTATUS(status) == 0);
 
@@ -15,11 +15,11 @@ int main()
     assert(WEXITSTATUS(status) == 42);
 
     status = Process::ExecuteCommand("echo Hello > /dev/null");
-    assert(WIFECITED(status));
+    assert(WIFEXITED(status));
     assert(WEXITSTATUS(status) == 0);
 
     status = Process::ExecuteCommand("echo Hello | grep Hello > /dev/null");
-    assert(WIFECITED(status));
+    assert(WIFEXITED(status));
     assert(WEXITSTATUS(status) == 0);
 
     status = Process::ExecuteCommand("nonexistent_hw8_command");
